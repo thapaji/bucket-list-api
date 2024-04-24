@@ -25,8 +25,14 @@ Content-Type: application/json
 
  #body of the request,there should be gap between header and body
 {
-    "type" : "bad",
-    "id":"66234343166a996d69e4ae10"
+    "id":"66287ab9e1b1444409cb3ae7",
+    "title": "Bungee Jumping",
+    "description": "It has multiple locations in Australia and Nepal.",
+    "category": "Adventure",
+    "status": "Not Completed",    
+    "location": "Sun Koshi",     
+    "cost": "15000",
+    "owner": "Thapaji" 
 }
 
 #### DELETE data in server
@@ -36,5 +42,5 @@ Content-Type: application/json
 
  #body of the request,there should be gap between header and body
 {
-    "id":"66234343166a996d69e4ae10" 
+    "ids":"662982be2509e06e1df6fca5" 
 }

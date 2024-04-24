@@ -12,9 +12,9 @@ export const getBucList = () => {
 }
 
 /*UPDATE*/
-export const updateBucList = ({ id, type }) => {
-    console.log(id, type);
-    return BucListSchema.findByIdAndUpdate({ "_id": id }, { type }, { new: true });
+export const updateBucList = (_id, listItem) => {
+    console.log(listItem);
+    return BucListSchema.findByIdAndUpdate({ _id }, { ...listItem }, { new: true });
 }
 
 /*DELETE ONE or  MANY*/

@@ -40,7 +40,8 @@ router.post("/", async (req, res) => {
 /*update task*/
 router.patch("/", async (req, res) => {
     try {
-        const result = await updateBucList(req.body);
+        // console.log(req.body)
+        const result = await updateBucList(req.body.id, req.body);
         result?._id
             ? res.json({
                 status: "success",
@@ -51,6 +52,7 @@ router.patch("/", async (req, res) => {
                 message: "Your bucket list could not be updated",
             });
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             status: "error",
             message: "Something went wrong in server. Please contact the provider.",
@@ -61,11 +63,11 @@ router.patch("/", async (req, res) => {
 /*delete task*/
 router.delete("/", async (req, res) => {
     try {
-        // console.log(':::::::::::::::::' + req.body);
+        console.log(req.body);
         const { ids } = req.body;
         const result = await deleteBucList(ids);
-
-        result?._id
+        console.log(result);
+        result?.acknowledged
             ? res.json({
                 status: "success",
                 message: "Your bucket list has been deleted",
