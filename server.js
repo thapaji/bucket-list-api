@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from "express";
 import morgan from "morgan";
-import taskRouter from "./src/routers/bucListRouter.js";
+import bucListRouter from "./src/routers/bucListRouter.js";
 import { conectMongo } from "./src/config/mongoDBConfig.js";
 import cors from 'cors';
 
