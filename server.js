@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from "express";
 import morgan from "morgan";
 import bucListRouter from "./src/routers/bucListRouter.js";
+import userRouter from "./src/routers/userRouter.js";
 import { conectMongo } from "./src/config/mongoDBConfig.js";
 import cors from 'cors';
 
@@ -17,6 +18,7 @@ conectMongo();
 app.use(morgan("dev"));
 app.use(express.json());
 
+app.use("/api/users", userRouter);
 app.use("/api/bucket-lists", bucListRouter);
 
 //run the server
