@@ -11,6 +11,10 @@ export const getBucList = () => {
     return BucListSchema.find();
 }
 
+export const getBucItem = (_id) => {
+    return BucListSchema.findOne({ _id });
+}
+
 /*UPDATE*/
 export const updateBucList = (_id, listItem) => {
     console.log(listItem);
