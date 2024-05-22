@@ -6,7 +6,7 @@ const router = express.Router();
 /* GET*/
 router.get("/", async (req, res) => {
     const { authorization } = req.headers;
-    console.log(req.headers)
+    // console.log(req.headers)
     const result = await getBucList(authorization);
     res.json({
         message: "Bucket List read",
