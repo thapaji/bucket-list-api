@@ -76,10 +76,7 @@ router.patch("/", async (req, res) => {
 /*delete bucket-list*/
 router.delete("/", async (req, res) => {
     try {
-        console.log(req.body);
-        const { ids } = req.body;
-        const result = await deleteBucList(ids);
-        console.log(result);
+        const result = await deleteBucList(req.body);
         result?.acknowledged
             ? res.json({
                 status: "success",
