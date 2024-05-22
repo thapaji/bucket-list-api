@@ -7,8 +7,9 @@ export const insertBucList = (bucListObj) => {
 }
 
 /*READ*/
-export const getBucList = () => {
-    return BucListSchema.find();
+export const getBucList = (userId) => {
+    console.log(userId)
+    return !userId ? {} : BucListSchema.find({ owner: userId });
 }
 
 export const getBucItem = (_id) => {

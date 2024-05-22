@@ -5,8 +5,9 @@ const router = express.Router();
 
 /* GET*/
 router.get("/", async (req, res) => {
-    const result = await getBucList();
-    console.log(result);
+    const { authorization } = req.headers;
+    console.log(req.headers)
+    const result = await getBucList(authorization);
     res.json({
         message: "Bucket List read",
         data: result,
@@ -15,11 +16,9 @@ router.get("/", async (req, res) => {
 
 /* GET Single*/
 router.get("/list", async (req, res) => {
-    console.log('dasdasdasdasdasdasdsdadsadsadadasdsfasdgdfsg')
     console.log(req.headers)
     const { authorization, _id } = req.headers;
     const result = await getBucItem(_id);
-    console.log(result);
     res.json({
         message: "Bucket List item read",
         data: result,
@@ -53,8 +52,8 @@ router.post("/", async (req, res) => {
 /*update bucket-list*/
 router.patch("/", async (req, res) => {
     try {
-        // console.log(req.body)
-        const result = await updateBucList(req.body.id, req.body);
+        console.log(req.body)
+        const result = await updateBucList(req.body._id, req.body);
         result?._id
             ? res.json({
                 status: "success",
